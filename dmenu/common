@@ -1,0 +1,17 @@
+PACKAGE="dmenu"
+VERSION="4.5"
+SOURCE="http://dl.suckless.org/tools/dmenu-4.5.tar.gz"
+BUILD_DEPENDS="compiletc"
+
+DESCRIPTION="dmenu is a dynamic menu for x."
+AUTHOR="Connor Lane Smith, Anselm R Garbe, Gottox, Markus Schnalke, Evan Gates, Sander van Dijk, Micha?~B Janecze"
+SITE="http://tools.suckless.org/dmenu/"
+COPYING="MIT/X Consortium License"
+MAINTAINERS="althalus"
+TAGS=""
+COMMENTS="dmenu is a dynamic menu for X, originally designed for dwm. It manages
+            large numbers of user-defined menu items efficiently.
+            
+            Basic usage: run dmenu_run. See the man page for more details."
+CHANGELOG="---"
+CURRENT="Updated to 4.5"
