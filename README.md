@@ -38,3 +38,7 @@ thereby getting real transparency.
 
 Use the version in the TC repositories. Seriously. I was just too impatient to
 wait for bmarkus to submit an update.
+
+### Dmenu
+
+Dynamic menu for X. 
