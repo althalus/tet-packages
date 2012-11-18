@@ -1,0 +1,18 @@
+PACKAGE="ctags"
+VERSION="5.8"
+SOURCE="http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz"
+BUILD_DEPENDS="compiletc"
+
+DESCRIPTION="Exuberant Ctags, a multilanguage implementation of ctags"
+AUTHOR=""
+SITE="http://ctags.sourceforge.net/"
+COPYING="GPL-2"
+MAINTAINERS="althalus"
+TAGS="ctags tags"
+COMMENTS="\"Ctags generates an index (or tag) file of language objects found
+            in source files that allows these items to be quickly and easily
+            located by a text editor or other utility. A tag signifies a
+            language object for which an index entry is available 
+            (or, alternatively, the index entry created for that object).\""
+CHANGELOG="---"
+CURRENT="First Version"
