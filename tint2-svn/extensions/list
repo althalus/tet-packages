@@ -1,0 +1,11 @@
+etc/xdg/tint2/tint2rc
+usr/local/bin/tint2
+usr/local/bin/tint2conf
+usr/local/bin/tintwizard.py
+usr/local/share/applications/tint2conf.desktop
+usr/local/share/doc/tint2/AUTHORS
+usr/local/share/doc/tint2/ChangeLog
+usr/local/share/doc/tint2/README
+usr/local/share/icons/hicolor/scalable/apps/taskbar.svg
+usr/local/share/man/man1/tint2.1
+usr/local/share/tint2/default_icon.png
