@@ -42,3 +42,8 @@ wait for bmarkus to submit an update.
 ### Dmenu
 
 Dynamic menu for X. 
+
+### DWM-Custom
+
+Builds DWM after applying some patches to configure it to my liking. Currently 
+doesn't set $DESKTOP, so it's a bit broken on boot.
