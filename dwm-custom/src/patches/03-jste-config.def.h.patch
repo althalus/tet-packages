@@ -1,37 +1,40 @@
---- a/config.def.h	2012-11-20 21:46:35.349561116 +0000
-+++ b/config.def.h	2012-11-20 21:49:16.742884574 +0000
-@@ -3,23 +3,24 @@
+--- a/config.def.h	2012-11-21 19:48:15.376269970 +0000
++++ b/config.def.h	2012-11-21 20:26:22.786250943 +0000
+@@ -2,12 +2,19 @@
+ 
  /* appearance */
  static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
- static const char normbordercolor[] = "#444444";
+-static const char normbordercolor[] = "#444444";
 -static const char normbgcolor[]     = "#222222";
-+static const char normbgcolor[]     = "#1f1f1f";
- static const char normfgcolor[]     = "#bbbbbb";
+-static const char normfgcolor[]     = "#bbbbbb";
 -static const char selbordercolor[]  = "#005577";
 -static const char selbgcolor[]      = "#005577";
 -static const char selfgcolor[]      = "#eeeeee";
-+static const char selbordercolor[]  = "#44545c";
-+static const char selbgcolor[]      = "#44545c";
-+static const char selfgcolor[]      = "#dddddd";
++#define NUMCOLORS 9 
++static const char colors[NUMCOLORS][ColLast][9] = {
++// border foreground background
++{ "#212121", "#696969", "#121212" }, // 0 = normal
++{ "#696969", "#E0E0E0", "#121212" }, // 1 = selected
++{ "#212121", "#CF4F88", "#121212" }, // 2 = red
++{ "#212121", "#53A6A6", "#121212" }, // 3 = green
++{ "#212121", "#914E89", "#121212" }, // 4 = yellow
++{ "#212121", "#4779B3", "#121212" }, // 5 = blue
++{ "#212121", "#47959E", "#121212" }, // 6 = cyan
++{ "#212121", "#7E62B3", "#121212" }, // 7 = magenta
++{ "#212121", "#899CA1", "#121212" }, // 8 = grey
++};
  static const unsigned int borderpx  = 1;        /* border pixel of windows */
  static const unsigned int snap      = 32;       /* snap pixel */
  static const Bool showbar           = True;     /* False means no bar */
- static const Bool topbar            = True;     /* False means bottom bar */
- 
- /* tagging */
--static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "Gimp", "Browser" };
- 
- static const Rule rules[] = {
+@@ -20,6 +27,7 @@
  	/* class      instance    title       tags mask     isfloating   monitor */
--	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-+	{ "Gimp",     NULL,       NULL,       1 << 7,            True,        -1 },
+ 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
  	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
 +	{ "Chromium-browser",  NULL,       NULL,       1 << 8,       False,       -1 },
  };
  
  /* layout(s) */
-@@ -39,7 +40,7 @@
+@@ -39,7 +47,7 @@
  };
  
  /* key definitions */
@@ -40,11 +43,13 @@
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -51,13 +52,13 @@
+@@ -50,14 +58,14 @@
+ #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
  /* commands */
- static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 -static const char *termcmd[]  = { "uxterm", NULL };
++static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[ColFG], NULL };
 +static const char *termcmd[]  = { "urxvt", NULL };
  
  static Key keys[] = {
@@ -56,7 +61,7 @@
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
  	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
  	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-@@ -70,6 +71,7 @@
+@@ -70,6 +78,7 @@
  	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
  	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
  	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
