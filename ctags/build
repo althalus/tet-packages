@@ -9,6 +9,7 @@
 build_configure() {
 
    ## autotools
+   autoreconf
    ./configure --prefix=/usr/local || return 1
 
    ## cmake

@@ -1,6 +1,6 @@
 PACKAGE="ctags"
-VERSION="5.8"
-SOURCE="http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz"
+VERSION="svn~r799"
+SOURCE="svn::https://ctags.svn.sourceforge.net/svnroot/ctags/trunk"
 BUILD_DEPENDS="compiletc"
 
 DESCRIPTION="Exuberant Ctags, a multilanguage implementation of ctags"
