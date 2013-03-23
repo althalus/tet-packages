@@ -49,3 +49,8 @@ Builds DWM after applying some patches to configure it to my liking. Currently
 doesn't set $DESKTOP, so it's a bit broken on boot. The volume key config
 settings are also maybe not portable, as they're the actual keysym codes sent
 by my current keyboard.
+
+### Coffeescript
+
+Coffeescript, a little language that compiles to javascript.
+
