@@ -43,13 +43,14 @@
  #define TAGKEYS(KEY,TAG) \
  	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
  	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-@@ -50,14 +64,20 @@
+@@ -50,14 +66,22 @@
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
  /* commands */
 -static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 -static const char *termcmd[]  = { "uxterm", NULL };
-+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[ColFG], NULL };
++static const char *dmenucmd[] = { "dmenu-run-recent", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[ColFG], NULL };
++static const char *dmenutcecmd[] = { "dmenu-load-tce", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[ColFG], NULL };
 +static const char *volupcmd[] = { "amixer", "sset", "Master", "playback", "5+", NULL };
 +static const char *voldncmd[] = { "amixer", "sset", "Master", "playback", "5-", NULL };
 +static const char *volmutecmd[] = { "amixer", "sset", "Master", "toggle", NULL };
@@ -61,6 +62,7 @@
 +	{ 0,                            0x1008ff11, spawn,      {.v = voldncmd} },
 +	{ 0,                            0x1008ff12, spawn,      {.v = volmutecmd} },
  	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
++	{ MODKEY,                       XK_o,      spawn,       {.v = dmenutcecmd} },
  	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 -	{ MODKEY,                       XK_b,      togglebar,      {0} },
 +	{ MODKEY,                       XK_a,      togglebar,      {0} },
